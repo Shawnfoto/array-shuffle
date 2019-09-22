@@ -1,15 +1,14 @@
 function shuffle(array) {
-  let currentIndex = array.length;
-  let temporaryValue;
-  let randomIndex;
+  let currentIndex = array.length-1;
+  let temporaryValue = 0;
+  let randomIndex = 0;
 
-  while (0 !== currentIndex) {
+  while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
+    currentIndex--;
   }
 
   return array;
