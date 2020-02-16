@@ -3,7 +3,9 @@
 ### example
 
 ```js
-const TABLE_DATA = [1, 2, 3, 4];
-const TABLE_DATA_random = shuffle(TABLE_DATA);
-console.log(TABLE_DATA_random);
+const obj = new Solution(TABLE_DATA)
+const tableDataReset = obj.reset()
+const tableDataRandom = obj.shuffle()
 ```
+
+Same as leetcode 384. Shuffle an Array

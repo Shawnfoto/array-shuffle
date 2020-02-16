@@ -1,15 +1,37 @@
-function shuffle(array) {
-  let currentIndex = array.length-1;
-  let temporaryValue = 0;
-  let randomIndex = 0;
+/**
+ * @param {number[]} nums
+ */
+var Solution = function(nums) {
+  this.nums = nums
+};
 
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-    currentIndex--;
+/**
+* Resets the array to its original configuration and return it.
+* @return {number[]}
+*/
+Solution.prototype.reset = function() {
+  return this.nums
+};
+
+/**
+* Returns a random shuffling of the array.
+* @return {number[]}
+*/
+Solution.prototype.shuffle = function() {
+  const nums = [...this.nums]
+  let len = nums.length
+  for(let i = 0; i < len; i++) {
+      let randomIndex = Math.floor(Math.random() * len);
+      let tempValue = nums[i]
+      nums[i] = nums[randomIndex]
+      nums[randomIndex] = tempValue
   }
+  return nums
+};
 
-  return array;
-}
+/** 
+* Your Solution object will be instantiated and called as such:
+* var obj = new Solution(nums)
+* var param_1 = obj.reset()
+* var param_2 = obj.shuffle()
+*/
